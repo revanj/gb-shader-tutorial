@@ -1,0 +1,15 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+uniform sampler2D material1;
+uniform sampler2D material2;
+
+void fragment(){
+	float x_div = (sin(TIME) + 1.0)/2.0;
+	if (UV.x > x_div) {
+		COLOR = texture(material1, UV);
+	} else {
+		COLOR = texture(material2, UV);
+	}
+}"

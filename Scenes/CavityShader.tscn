@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Shaders/cavity_shader.tres" type="Shader" id=1]
+[ext_resource path="res://Scripts/CavityShader.gd" type="Script" id=2]
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 1 )
+shader_param/center = Vector2( 0.5, 0.5 )
+shader_param/radius = 0.0
+shader_param/invert = false
+shader_param/width = 1024.0
+shader_param/height = 768.0
+
+[node name="CavityShader" type="ColorRect"]
+material = SubResource( 2 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]

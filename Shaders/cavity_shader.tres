@@ -1,0 +1,27 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type canvas_item;
+
+uniform vec2 center = vec2(0.5,0.5);
+uniform float radius = 0f;
+uniform bool invert = false;
+uniform float width = 1024;
+uniform float height = 768;
+
+varying vec2 pos;
+
+void vertex(){
+	pos = VERTEX;
+}
+
+void fragment(){
+	COLOR = vec4(0.0,0.0,0.0,1.0);
+//	vec2 screen_uv_centerized = SCREEN_UV - center;
+//	screen_uv_centerized.y *= height/width;
+//	float dist = distance(vec2(0f,0f), screen_uv_centerized);
+	float dist = distance(pos, center);
+	if (dist < radius) {
+		COLOR.a = 0f;
+	}
+}"
